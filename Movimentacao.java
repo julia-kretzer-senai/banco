@@ -1,4 +1,5 @@
 package mine;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -73,23 +74,25 @@ public class Movimentacao {
 		double ethereum = 8370;
 		double dogecoin = 0.32;
 		
-		DecimalFormat df = new DecimalFormat("#####.#####"); 
+		double btcSaldo = 0;
+		double ethSaldo = 0;
+		double dogeSaldo = 0;
+		double btc = btcSaldo * bitcoin;
+		double eth = ethSaldo * ethereum;
+		double doge = dogeSaldo * dogecoin;
+		
+		DecimalFormat df = new DecimalFormat("####.###");
 		
 		while (back != 2) {
 			// reais / precobtc = quantidadebitcoin
 			// quantidadebtc * precobtc = reais
-			double btcSaldo = 0;
-			double ethSaldo = 0;
-			double dogeSaldo = 0;
-			double btc = btcSaldo * bitcoin;
-			double eth = ethSaldo * ethereum;
-			double doge = dogeSaldo * dogecoin;
+
 			
-			System.out.println("CRIPTO PORTFÓLIO\nBitcoin: " + btcSaldo + " BTC = R$" + btc + "\nEthereum: " + ethSaldo + " ETH = R$" + eth + "\nDogecoin: " + dogeSaldo + " DOGE = R$" + doge);
+			System.out.println("CRIPTO PORTFÓLIO\nBitcoin: " + df.format(btcSaldo) + " BTC = R$" + btc + "\nEthereum: " + df.format(ethSaldo) + " ETH = R$" + eth + "\nDogecoin: " + df.format(dogeSaldo) + " DOGE = R$" + doge);
 			System.out.println("\n1- COMPRAR MOEDAS\n2- VOLTAR");
 			
 			int buy = Sc.nextInt();
-			int i = 0;
+
 			double qtd;
 			
 			if (buy == 2) {
@@ -101,13 +104,13 @@ public class Movimentacao {
 				int coin = Sc.nextInt();
 				
 				System.out.println("Quantos R$ deseja usar para comprar?");
-//				Sc.nextLine();
+				Sc.nextLine();
 				qtd = Sc.nextDouble();
 				
 				while (qtd > saldo) {
 					System.out.print("Você não possui esse saldo em conta. \nInsira outro valor: ");
 					qtd = Sc.nextDouble();
-
+				}
 				if (qtd <= saldo) {
 					if (coin == 1) {
 						System.out.println("Compra de BTC realizada com sucesso! Digite 1 para voltar para o portfólio");
@@ -115,12 +118,12 @@ public class Movimentacao {
 						btc += qtd;
 						back = Sc.nextInt();
 					} else if (coin == 2) {
-						ethSaldo += qtd/bitcoin;
+						ethSaldo += qtd/ethereum;
 						eth += qtd;
 						System.out.println("Compra de ETH realizada com sucesso! Digite 1 para voltar para o portfólio");
 						back = Sc.nextInt();
 					} else {
-						dogeSaldo += qtd/bitcoin;
+						dogeSaldo += qtd/dogecoin;
 						doge += qtd;
 						System.out.println("Compra de DOGE realizada com sucesso! Digite 1 para voltar para o portfólio");
 						back = Sc.nextInt();
@@ -136,4 +139,3 @@ public class Movimentacao {
 	
 	
 	}
-}
