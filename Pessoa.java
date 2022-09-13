@@ -51,9 +51,9 @@ public class Pessoa {
 				System.out.println("Nome modificado com sucesso!");
 				confirm = 1;
 			} else if (change == 2) {
-				System.out.println("Insira o endere�o correto: ");
+				System.out.println("Insira o endereco correto: ");
 				endereco = Sc.nextLine();
-				System.out.println("Endere�o modificado com sucesso!");
+				System.out.println("Endereco modificado com sucesso!");
 				confirm = 1;
 			} else if (change == 3) {
 				System.out.println("Insira a profissao correta: ");
@@ -71,7 +71,8 @@ public class Pessoa {
 				System.out.println("Renda modificada com sucesso!");
 				confirm = 1;
 			} else {
-				System.out.println("Nome: " + nome + "\nEndere�o: " + endereco + "\nCONFIRMAR DADOS? 1-SIM 2-N�O");
+				System.out.println("Nome: " + nome + "\nEndereco: " + endereco + "\nProfissao:" + prof + "CPF: " + cpf
+				+ "Renda: " + renda + "\nCONFIRMAR DADOS? 1-SIM 2-NAO");
 				sConfirm = Sc.nextLine();
 				confirm = Integer.valueOf(sConfirm);
 
@@ -79,17 +80,17 @@ public class Pessoa {
 		}
 
 		if (confirm == 1) {
-			System.out.println("Crie uma senha de 6 d�gitos num�ricos (n�o pode come�ar com 0): ");
+			System.out.println("Crie uma senha de 6 digitos numericos (sem comecar com 0): ");
 			String sSenha = Sc.nextLine();
 
 			int senha = Integer.valueOf(sSenha);
 
 			while (senha < 100000 || senha > 999999) {
-				System.out.println("Senha inv�lida. Digite uma nova senha: ");
+				System.out.println("Senha invalida. Digite uma nova senha: ");
 				senha = Sc.nextInt();
 			}
-			System.out.println("Conta criada com sucesso! \nN�mero: " + numeroDaConta + "\nAg�ncia: " + agencia
-					+ "\nD�gito: " + digito + "\n\nDigite 1 para ir para a tela de login");
+			System.out.println("Conta criada com sucesso! \nNumero: " + numeroDaConta + "\nAgencia: " + agencia
+					+ "\nDigito: " + digito + "\n\nDigite 1 para ir para a tela de login");
 			String sYes = Sc.nextLine();
 
 			yes = Integer.valueOf(sYes);
