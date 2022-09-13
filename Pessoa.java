@@ -143,47 +143,51 @@ public class Pessoa {
 	public void mostrarDados() {
 		System.out.println("Nome: " + nome + "\nEndereco: " + endereco + "\nProfissao:" + prof + "\nCPF: "
 				+ cpf + "\nRenda: " + renda + "\nConta MERCURY\nDESEJA MODIFICAR DADOS? 1-SIM 2-NAO");
-		String sChange = Sc.nextLine();
-		int change = Integer.valueOf(sChange);
+		Sc.nextLine();
+		int change = Sc.nextInt();
 		
 		if (change == 2) {
 			confirm = 1;
 		} else {
 			System.out.println(
 					"Para mudar o nome: digite 1\nPara mudar o endereco: digite 2\nPara mudar a profissao: digite 3 \nPara mudar o CPF: digite 4 \nPara mudar a renda: digite 5\nPara mudar o tipo da conta: digite 6\nPara voltar: digite 7");
-			String sMod = Sc.nextLine();
+			int mod = Sc.nextInt();
 
-			int mod = Integer.valueOf(sChange);
-
-			if (change == 1) {
+			if (mod == 1) {
 				System.out.println("Insira o nome correto: ");
+				Sc.nextLine();
 				nome = Sc.nextLine();
 				System.out.println("Nome modificado com sucesso!");
 				confirm = 1;
-			} else if (change == 2) {
+			} else if (mod == 2) {
 				System.out.println("Insira o endereco correto: ");
+				Sc.nextLine();
 				endereco = Sc.nextLine();
 				System.out.println("Endereco modificado com sucesso!");
 				confirm = 1;
-			} else if (change == 3) {
+			} else if (mod == 3) {
 				System.out.println("Insira a profissao correta: ");
+				Sc.nextLine();
 				prof = Sc.nextLine();
 				System.out.println("Profissao modificada com sucesso!");
 				confirm = 1;
-			} else if (change == 4) {
+			} else if (mod == 4) {
 				System.out.println("Insira o CPF correto: ");
+				Sc.nextLine();
 				cpf = Sc.nextLine();
 				System.out.println("CPF modificado com sucesso!");
 				confirm = 1;
-			} else if (change == 5) {
+			} else if (mod == 5) {
 				System.out.println("Insira a renda correta: ");
+				Sc.nextLine();
 				renda = Sc.nextLine();
 				System.out.println("Renda modificada com sucesso!");
 				confirm = 1;
-			} else if (change == 6) {
+			} else if (mod == 6) {
 				System.out.println("Escolha um tipo de conta: \n1 - MERCURY\n Conta padrão, sem taxas \n2- VENUS\n Taxa de inscrição: R$100,00"
 						+ "\n Recebe 2% de cashback todo mês para a realização de investimentos conosco \n3 - EARTH (RECOMENDADO)"
 						+ "\n Taxa de adesão: R$300,00 \n10% de cashback mensal para a realização de investimentos em criptomoedas");
+				Sc.nextLine();
 				int conta = Sc.nextInt();
 				System.out.println("Tipo da conta modificado com sucesso!");
 				confirm = 1;
