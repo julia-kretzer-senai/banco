@@ -2,6 +2,8 @@ package mine;
 import java.util.Scanner;
 
 public class Main {
+	
+
 	static Scanner Sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
@@ -27,15 +29,9 @@ public class Main {
 			while (movimentacao.continuar != 1) {
 				int option = 0;
 				System.out.println(
-						"O que você deseja fazer? \n1 - Ver saldo\n2 - Depositar\n3 - Sacar \n4 - Transferir \n5 - Ver portfólio de criptomoedas \n6 - SAIR");
+						"O que você deseja fazer? \n1 - Ver saldo\n2 - Depositar\n3 - Sacar \n4 - Transferir \n5 - Ver portfólio de criptomoedas \n6 - Ver dados pessoais \n7 - SAIR");
 				
 				option = Sc.nextInt();
-				
-//				Sc.nextLine();
-//				
-//				String sOption = Sc.nextLine();
-//				
-//				int option = Integer.valueOf(sOption);
 				
 				switch (option) {
 				case 1:
@@ -53,10 +49,14 @@ public class Main {
 					break;
 
 				case 5: 
+					movimentacao.continuar = 1;
 					movimentacao.verPortfolio();
 					break;
 					
 				case 6:
+					pessoa.mostrarDados();
+					break;
+				case 7:
 					movimentacao.continuar = 1;
 					break;
 				}
