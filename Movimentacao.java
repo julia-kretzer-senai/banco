@@ -66,4 +66,23 @@ public class Movimentacao {
 		continuar = Sc.nextInt();
 	}
 	
+	public void verPortfolio() {
+		double btc = 0;
+		double eth = 0;
+		double doge = 0;
+		System.out.println("CRIPTOPORTFÓLIO\nBitcoin: " + btc + "\nEthereum: " + eth + "\nDogecoin: " + doge);
+		System.out.println("\n\n1- COMPRAR MOEDAS\n2- SAIR");
+		String sBuy = Sc.nextLine();
+		
+		int buy = Integer.valueOf(sBuy);
+		
+		if (buy == 2) {
+			continuar = 2;
+		} else {
+			System.out.println("Qual moeda deseja comprar?");
+		}
+	}
+	
+	
+	
 }
