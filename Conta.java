@@ -1,4 +1,5 @@
 package mine;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -119,7 +120,7 @@ public class Conta {
 		renda = Sc.nextLine();
 
 		System.out.println(
-				"Escolha um tipo de conta: \n1 - MERCURY\n Conta padrão, sem taxas \n2- VENUS\n Taxa de inscrição: R$100,00\n Recebe 2% de cashback todo mês para a realização de investimentos conosco \n3 - EARTH (RECOMENDADO) \n Taxa de adesão: R$300,00 \n10% de cashback mensal para a realização de investimentos em criptomoedas ");
+				"Escolha um tipo de conta: \n1 - MERCURY\nConta padrão, sem taxas \n2- VENUS\nTaxa de adesão: R$100,00\n2% de cashback todo mês para a realização de investimentos em criptomoedas \n3 - EARTH (RECOMENDADO) \nTaxa de adesão: R$300,00 \n10% de cashback mensal para a realização de investimentos em criptomoedas ");
 		conta = Sc.nextInt();
 
 		confirmar();
@@ -128,8 +129,8 @@ public class Conta {
 
 		if (confirm == 1) {
 			criarSenha();
-			System.out.println("Conta criada com sucesso! \nNumero: " + numero + "\nAgencia: " + agencia
-					+ "\nDigito: " + digito + "\n\nDigite 1 para ir para a tela inicial");
+			System.out.println("Conta criada com sucesso! \nNumero: " + numero + "\nAgencia: " + agencia + "\nDigito: "
+					+ digito + "\n\nDigite 1 para ir para a tela inicial");
 			Sc.nextLine();
 			num = Sc.nextInt();
 		}
@@ -150,9 +151,8 @@ public class Conta {
 	}
 
 	public void mostrarDados() {
-		System.out.println("Nome: " + nome + "\nNumero da conta: " + numero + "\nAgencia: " + agencia
-				+ "\nDigito: " + digito + "\nEndereco: " + endereco + "\nProfissao:" + prof + "\nCPF: " + cpf
-				+ "\nRenda: " + renda
+		System.out.println("Nome: " + nome + "\nNumero da conta: " + numero + "\nAgencia: " + agencia + "\nDigito: "
+				+ digito + "\nEndereco: " + endereco + "\nProfissao:" + prof + "\nCPF: " + cpf + "\nRenda: " + renda
 				+ "\nConta MERCURY\nDESEJA MODIFICAR DADOS PESSOAIS? \n1-SIM \n2-MUDAR SENHA \n3-VOLTAR");
 		int change = Sc.nextInt();
 
