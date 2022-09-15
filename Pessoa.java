@@ -16,7 +16,7 @@ public class Pessoa {
 			tipoConta = "MERCURY";
 		} else if (conta == 2) {
 			tipoConta = "VENUS";
-		} else if (conta == 3){
+		} else if (conta == 3) {
 			tipoConta = "EARTH";
 		}
 	}
@@ -24,7 +24,7 @@ public class Pessoa {
 	public void criarSenha() {
 		System.out.println("Crie uma senha de 6 digitos numericos (sem comecar com 0): ");
 		Sc.nextLine();
-		
+
 		int senha = Sc.nextInt();
 
 		while (senha < 100000 || senha > 999999) {
@@ -32,17 +32,18 @@ public class Pessoa {
 			senha = Sc.nextInt();
 		}
 	}
+
 	public void confirmar() {
 		verificarConta();
 		System.out.println("Nome: " + nome + "\nEndereco: " + endereco + "\nProfissao:" + prof + "\nCPF: " + cpf
 				+ "\nRenda: " + renda + "\nConta " + tipoConta + "\nCONFIRMAR DADOS? 1-SIM 2-NAO");
 		confirm = Sc.nextInt();
 	}
-	
+
 	public void atualizar() {
 		System.out.println("Dados atualizados com sucesso!");
 	}
-	
+
 	public void mudarDados() {
 		while (confirm != 1) {
 
@@ -81,9 +82,10 @@ public class Pessoa {
 				System.out.println("Renda modificada com sucesso!");
 				confirmar();
 			} else if (change == 6) {
-				System.out.println("Escolha um tipo de conta: \n1 - MERCURY\n Conta padrão, sem taxas \n2- VENUS\n Taxa de inscrição: R$100,00"
-						+ "\n Recebe 2% de cashback todo mês para a realização de investimentos conosco \n3 - EARTH (RECOMENDADO)"
-						+ "\n Taxa de adesão: R$300,00 \n10% de cashback mensal para a realização de investimentos em criptomoedas");
+				System.out.println(
+						"Escolha um tipo de conta: \n1 - MERCURY\n Conta padrão, sem taxas \n2- VENUS\n Taxa de inscrição: R$100,00"
+								+ "\n Recebe 2% de cashback todo mês para a realização de investimentos conosco \n3 - EARTH (RECOMENDADO)"
+								+ "\n Taxa de adesão: R$300,00 \n10% de cashback mensal para a realização de investimentos em criptomoedas");
 				Sc.nextLine();
 				conta = Sc.nextInt();
 				System.out.println("Tipo da conta modificado com sucesso!");
@@ -94,6 +96,7 @@ public class Pessoa {
 			}
 		}
 	}
+
 	public void cadastrar() {
 
 		Random random = new Random();
@@ -121,9 +124,9 @@ public class Pessoa {
 		conta = Sc.nextInt();
 
 		confirmar();
-		
+
 		mudarDados();
-		
+
 		if (confirm == 1) {
 			criarSenha();
 			System.out.println("Conta criada com sucesso! \nNumero: " + numeroDaConta + "\nAgencia: " + agencia
@@ -131,7 +134,7 @@ public class Pessoa {
 			Sc.nextLine();
 			num = Sc.nextInt();
 		}
-		
+
 	}
 
 	public void fazerLogin() {
@@ -148,11 +151,12 @@ public class Pessoa {
 	}
 
 	public void mostrarDados() {
-		System.out.println("Nome: " + nome +  "\nNumero da conta: " + numeroDaConta + "\nAgencia: " + agencia
-			+ "\nDigito: " + digito + "\nEndereco: " + endereco + "\nProfissao:" + prof + "\nCPF: "
-				+ cpf + "\nRenda: " + renda + "\nConta MERCURY\nDESEJA MODIFICAR DADOS PESSOAIS? \n1-SIM \n2-MUDAR SENHA \n3-VOLTAR"); 
+		System.out.println("Nome: " + nome + "\nNumero da conta: " + numeroDaConta + "\nAgencia: " + agencia
+				+ "\nDigito: " + digito + "\nEndereco: " + endereco + "\nProfissao:" + prof + "\nCPF: " + cpf
+				+ "\nRenda: " + renda
+				+ "\nConta MERCURY\nDESEJA MODIFICAR DADOS PESSOAIS? \n1-SIM \n2-MUDAR SENHA \n3-VOLTAR");
 		int change = Sc.nextInt();
-		
+
 		if (change == 1) {
 			mudarDados();
 			atualizar();
@@ -165,6 +169,5 @@ public class Pessoa {
 		} else {
 			num = 1;
 		}
-	} 
+	}
 }
-	
