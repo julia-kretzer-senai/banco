@@ -1,5 +1,4 @@
 package mine;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -9,10 +8,14 @@ public class Movimentacao {
 	public double deposito, saque, transferencia;
 	public int continuar = 0;
 	
+	public void continuar() {
+		System.out.println("\nPara continuar, digite 1\nPara encerrar a sessão, digite 2");
+		continuar = Sc.nextInt();
+	}
+	
 	public void mostrarSaldo() {
 		System.out.print("Seu saldo atual é de R$" + saldo);
-		System.out.println("\nPara encerrar a sessão, digite 1\nPara continuar, digite 2");
-		continuar = Sc.nextInt();
+		continuar();
 	}
 	
 	public void depositar() {
@@ -21,8 +24,7 @@ public class Movimentacao {
 		saldo += deposito;
 
 		System.out.println("\nDepósito realizado com sucesso! Seu saldo atual é de R$" + saldo);
-		System.out.println("\nPara encerrar a sessão, digite 1\nPara continuar, digite 2");
-		continuar = Sc.nextInt();
+		continuar();
 	}
 	
 	public void sacar() {
@@ -32,11 +34,17 @@ public class Movimentacao {
 		while (saque > saldo) {
 			System.out.print("Você não possui esse saldo em conta. \nInsira 1 para ir para a tela de depósito \nou \nInsira outro valor (maior que 1): ");
 			saque = Sc.nextDouble();
+			
+			if (saque == 1) {
+				depositar();
+				System.out.println("Insira o valor que deseja sacar: ");
+				saque = Sc.nextDouble();
+
+			}
 		}
 		saldo -= saque;
 		System.out.println("\nSaque realizado com sucesso! Seu saldo atual é de R$" + saldo);
-		System.out.println("\nPara encerrar a sessão, digite 1\nPara continuar, digite 2");
-		continuar = Sc.nextInt();
+		continuar();
 	}
 	
 	public void transferir() {
@@ -51,6 +59,14 @@ public class Movimentacao {
 			while (transferencia > saldo) {
 				System.out.print("Você não possui esse saldo em conta. \nInsira 1 para ir para a tela de depósito \nou \nInsira outro valor (maior que 1): ");
 				transferencia = Sc.nextDouble();
+				
+				if (transferencia == 1) {
+					depositar();
+					System.out.print("Digite o número da conta para a qual deseja transferir: ");
+					recebe = Sc.nextInt();
+					System.out.print("Digite o valor que deseja transferir: ");
+					transferencia = Sc.nextDouble();
+				}
 			}
 
 			System.out.print("Cofirmar transferência de R$" + transferencia + " para conta nº" + recebe
@@ -63,8 +79,7 @@ public class Movimentacao {
 		}
 
 		System.out.println("\nTransferência realizada com sucesso! Seu saldo atual é de R$" + saldo);
-		System.out.println("\nPara encerrar a sessão, digite 1\nPara continuar, digite 2");
-		continuar = Sc.nextInt();
+		continuar();
 	}
 	
 	public void verPortfolio() {
@@ -89,7 +104,7 @@ public class Movimentacao {
 
 			
 			System.out.println("CRIPTO PORTFÓLIO\nBitcoin: " + df.format(btcSaldo) + " BTC = R$" + btc + "\nEthereum: " + df.format(ethSaldo) + " ETH = R$" + eth + "\nDogecoin: " + df.format(dogeSaldo) + " DOGE = R$" + doge);
-			System.out.println("\n1- COMPRAR MOEDAS\n2- VOLTAR");
+			System.out.println("\n1- Comprar moedas\n2- VOLTAR");
 			
 			int buy = Sc.nextInt();
 
@@ -97,7 +112,7 @@ public class Movimentacao {
 			
 			if (buy == 2) {
 				back = 2;
-				continuar = 2;
+				continuar();
 			} else {
 				System.out.println("Qual moeda deseja comprar? \n1- Bitcoin \n2- Ethereum \n3- Dogecoin");
 				Sc.nextLine();
@@ -108,8 +123,19 @@ public class Movimentacao {
 				qtd = Sc.nextDouble();
 				
 				while (qtd > saldo) {
-					System.out.print("Você não possui esse saldo em conta. \nInsira outro valor: ");
+					System.out.print("Você não possui esse saldo em conta. \nInsira 1 para ir para a tela de depósito \nou \nInsira outro valor (maior que 1): ");
 					qtd = Sc.nextDouble();
+					
+					if (qtd == 1) {
+						depositar();
+						System.out.println("Qual moeda deseja comprar? \n1- Bitcoin \n2- Ethereum \n3- Dogecoin");
+						Sc.nextLine();
+						coin = Sc.nextInt();
+						
+						System.out.println("Quantos R$ deseja usar para comprar?");
+						Sc.nextLine();
+						qtd = Sc.nextDouble();
+					}
 				}
 				if (qtd <= saldo) {
 					if (coin == 1) {
@@ -122,12 +148,13 @@ public class Movimentacao {
 						eth += qtd;
 						System.out.println("Compra de ETH realizada com sucesso! Digite 1 para voltar para o portfólio");
 						back = Sc.nextInt();
-					} else {
+					} else if (coin == 3){
 						dogeSaldo += qtd/dogecoin;
 						doge += qtd;
 						System.out.println("Compra de DOGE realizada com sucesso! Digite 1 para voltar para o portfólio");
 						back = Sc.nextInt();
-					}
+					} 
+					
 					saldo -= qtd;
 				}			
 				
