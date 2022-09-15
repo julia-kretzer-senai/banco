@@ -1,5 +1,3 @@
-package mine;
-
 import java.util.Random;
 import java.util.Scanner;
 
